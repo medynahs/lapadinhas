@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import './App.css';
 import Login from 'pages/Login';
+import { Box } from '@mui/material';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <Box style={{ backgroundColor: '#FDFAF5', padding: '12px' }}>
       <Login />
-    </>
+    </Box>
   );
 }
 
