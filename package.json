@@ -11,6 +11,16 @@
     "prettier-format": "prettier --config .prettierrc ./**/*.{ts,tsx,js} --write"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material/material-color-utilities": "^0.2.7",
+    "@mui/icons-material": "^5.14.1",
+    "@mui/lab": "^5.0.0-alpha.140",
+    "@mui/material": "^5.14.11",
+    "@mui/x-charts": "^6.18.3",
+    "@mui/x-data-grid": "^v7.0.0-alpha.3",
+    "@mui/x-date-pickers": "^6.18.3",
+    "@reduxjs/toolkit": "^1.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite-plugin-svgr": "^3.2.0"
@@ -18,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@types/material-ui": "^0.21.16",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
