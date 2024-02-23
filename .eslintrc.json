@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": ".",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "rules": {
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": 0,
+    "react/no-unescaped-entities": 1,
+    "@typescript-eslint/no-empty-function": 1,
+    "no-useless-catch": 0,
+    "no-console": 1,
+    "semi": [1, "always"]
+  }
+}

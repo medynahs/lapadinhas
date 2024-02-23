@@ -1,0 +1,24 @@
+{
+  "trailingComma": "es5",
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 80,
+  "endOfLine": "auto",
+  "quoteProps": "consistent",
+  "parser": "typescript",
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "options": {
+        "parser": "json-stringify"
+      }
+    },
+    {
+      "files": ["*.css"],
+      "options": {
+        "parser": "css"
+      }
+    }
+  ]
+}
