@@ -1,10 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Clientes from 'pages/Clientes';
-import Add from 'pages/Add/Add';
-import Update from 'pages/Update';
-import Login from 'pages/Login';
 import { Container } from './styles';
+
+import { Add, Clientes, Login, Update } from 'pages';
 
 const Content = () => {
   return (

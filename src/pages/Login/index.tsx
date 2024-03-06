@@ -15,4 +15,4 @@ const Login = ({ children }: Props) => {
   );
 };
 
-export default Login;
+export { Login };

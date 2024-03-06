@@ -23,11 +23,11 @@ const Update = () => {
   const clienteId = location.pathname.split('/')[2];
   console.log('id', clienteId);
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setCliente((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleClick = async (e: { preventDefault: () => void; }) => {
+  const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const updatedCliente = {
       ...cliente,
@@ -38,8 +38,11 @@ const Update = () => {
     console.log(updatedCliente);
 
     try {
-      await axios.put(`http://localhost:8800/clientes/${clienteId}`, updatedCliente);
-      navigate("/");
+      await axios.put(
+        `http://localhost:8800/clientes/${clienteId}`,
+        updatedCliente
+      );
+      navigate('/');
     } catch (err) {
       console.log(err);
       setError(true);
@@ -116,4 +119,4 @@ const Update = () => {
   );
 };
 
-export default Update;
+export { Update };

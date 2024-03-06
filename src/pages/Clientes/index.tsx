@@ -147,4 +147,4 @@ const Clientes = () => {
   );
 };
 
-export default Clientes;
+export { Clientes };
