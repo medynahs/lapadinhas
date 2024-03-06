@@ -1,10 +1,10 @@
-import './styles.css';
+import { MenuAside } from './styles';
 
 import { Link } from 'react-router-dom';
 
 const SidebarMenu = () => {
   return (
-    <aside className="Menu">
+    <MenuAside>
       <nav>
         <ul>
           <li>
@@ -18,7 +18,7 @@ const SidebarMenu = () => {
           </li>
         </ul>
       </nav>
-    </aside>
+    </MenuAside>
   );
 };
 

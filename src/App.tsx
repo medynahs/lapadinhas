@@ -2,9 +2,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { Content, SidebarMenu } from 'components';
 
+import 'App.css';
+
 function App() {
   return (
-    <div className="app">
+    <div className="App">
       <BrowserRouter>
         <SidebarMenu />
         <Content />

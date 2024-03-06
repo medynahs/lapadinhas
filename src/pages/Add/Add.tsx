@@ -1,29 +1,30 @@
-import axios from "axios";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import * as S from './styles';
 
 const Add = () => {
   const [cliente, setCliente] = useState({
-    duration: "",
-    date: "",
-    period: "",
-    typeOfPayment: "",
-    discount: "",
-    roomNumber: "",
-    typeOfRoom: "",
-    totalPrice: "",
-    age: "",
-    nationality: "",
+    duration: '',
+    date: '',
+    period: '',
+    typeOfPayment: '',
+    discount: '',
+    roomNumber: '',
+    typeOfRoom: '',
+    totalPrice: '',
+    age: '',
+    nationality: '',
   });
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setCliente((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleClick = async (e: { preventDefault: () => void; }) => {
+  const handleClick = async (e: { preventDefault: () => void }) => {
     console.log(cliente);
     const updatedCliente = {
       ...cliente,
@@ -34,8 +35,8 @@ const Add = () => {
     console.log(updatedCliente);
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/clientes", updatedCliente);
-      navigate("/");
+      await axios.post('http://localhost:8800/clientes', updatedCliente);
+      navigate('/');
     } catch (err) {
       console.log(err);
       setError(true);
@@ -43,8 +44,9 @@ const Add = () => {
   };
 
   return (
-    <div className="form">
+    <S.FormContainer>
       <h1>Add New cliente</h1>
+
       <input
         type="text"
         placeholder="cliente duration"
@@ -105,10 +107,12 @@ const Add = () => {
         name="nationality"
         onChange={handleChange}
       />
+
       <button onClick={handleClick}>Add</button>
-      {error && "Something went wrong!"}
+      {error && 'Something went wrong!'}
+
       <Link to="/">See all clientes</Link>
-    </div>
+    </S.FormContainer>
   );
 };
 
