@@ -14,6 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { TablePagination } from '@mui/material';
 import * as S from './styles';
+import 'tailwindcss/tailwind.css';
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -57,6 +58,11 @@ const Clientes = () => {
   return (
     <S.Container>
       <h1>Clientes</h1>
+      <div className="flex flex-col">
+      <button> Button 1 </button>
+      <button> Button 2 </button>
+      <button> Button 3 </button>
+    </div>
 
       <Paper>
         <TableContainer component={Paper}>

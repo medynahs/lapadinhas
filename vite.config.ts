@@ -25,12 +25,12 @@ export default defineConfig({
   build: {
     outDir: './build',
   },
-  preview: {
-    port: 3000,
-  },
   resolve: {
     alias: {
       '@': resolve(__dirname, '/src'),
+      '@widgets': resolve('src/widgets'),
+      '@features': resolve('src/features'),
+      '@entities': resolve('src/entities'),
     },
   },
 });

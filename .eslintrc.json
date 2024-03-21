@@ -24,7 +24,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier-plugin-tailwindcss"],
   "rules": {
     "react/jsx-uses-react": 0,
     "react/react-in-jsx-scope": 0,

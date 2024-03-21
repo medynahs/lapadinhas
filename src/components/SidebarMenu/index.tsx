@@ -1,24 +1,16 @@
-import { MenuAside } from './styles';
-
-import { Link } from 'react-router-dom';
+import 'tailwindcss/tailwind.css';
+// import './index.css';
 
 const SidebarMenu = () => {
   return (
-    <MenuAside>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Painel</Link>
-          </li>
-          <li>
-            <Link to="/">Caixa</Link>
-          </li>
-          <li>
-            <Link to="/">Inventário</Link>
-          </li>
-        </ul>
-      </nav>
-    </MenuAside>
+    <div>
+      <div className="flex flex-col">
+        <button> Button 1 </button>
+        <button> Button 2 </button>
+        <button> Button 3 </button>
+      </div>
+      <div className="shadow-sm bg-white rounded-lg">shadow-sm</div>
+    </div>
   );
 };
 
