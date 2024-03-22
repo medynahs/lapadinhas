@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as S from './styles';
 
 const Add = () => {
+  console.log('loaded page add');
   const [cliente, setCliente] = useState({
     duration: '',
     date: '',
@@ -18,7 +19,7 @@ const Add = () => {
   });
   const [error, setError] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setCliente((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -36,7 +37,7 @@ const Add = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8800/clientes', updatedCliente);
-      navigate('/');
+      // navigate('/');
     } catch (err) {
       console.log(err);
       setError(true);
