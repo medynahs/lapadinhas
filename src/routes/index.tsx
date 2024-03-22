@@ -1,4 +1,5 @@
 import { Add, Clientes, Update } from 'pages';
+import Caixa from 'pages/Caixa';
 import Painel from 'pages/Painel';
 import { ComponentType } from 'react';
 // import { NotAuthorized } from 'pages/NotAuthorized/NotAuthorized';
@@ -36,14 +37,14 @@ export const SECURE_ROUTES: {
       path: ['/caixa'],
       exact: true,
       title: 'Caixa',
-      component: Clientes,
+      component: Caixa,
       permissions: [Permissions.Admin, Permissions.Collaborator],
     },
     {
-      path: '/clientes/add',
+      path: '/carteira',
       exact: true,
-      title: 'Add',
-      component: Add,
+      title: 'Clientes',
+      component: Clientes,
       routes: [],
       permissions: [Permissions.Admin, Permissions.Collaborator],
     },

@@ -13,11 +13,8 @@ import { transformDate } from 'hooks/transformDate';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { TablePagination } from '@mui/material';
-// import * as S from './styles';
-import { Button } from '@mui/material';
 
 const Clientes = () => {
-  console.log('clientes page');
   const [clientes, setClientes] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -45,8 +42,6 @@ const Clientes = () => {
     fetchAllClientes();
   }, []);
 
-  console.log(clientes);
-
   const handleDelete = async (id: any) => {
     try {
       await axios.delete(`http://localhost:8800/clientes/${id}`);
@@ -58,8 +53,6 @@ const Clientes = () => {
 
   return (
     <div>
-      <h1>Clientes</h1>
-
       <Paper>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -126,31 +119,17 @@ const Clientes = () => {
               )}
             </TableBody>
           </Table>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={clientes.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={clientes.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
       </Paper>
-
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        {/* <S.AddButton>
-          <Link to="/add" style={{ color: 'inherit', textDecoration: 'none' }}>
-            Add new cliente
-          </Link>
-        </S.AddButton> */}
-
-        <Button>
-          <Link to="/add" style={{ color: 'inherit', textDecoration: 'none' }}>
-            Add new cliente
-          </Link>
-        </Button>
-      </div>
     </div>
   );
 };
