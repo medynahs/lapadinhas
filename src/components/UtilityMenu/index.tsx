@@ -9,7 +9,7 @@ export const UtilityMenu = () => {
   return (
     <Toolbar sx={{ gap: 2 }}>
       <Button
-        color="white"
+        color="primary"
         size="large"
         startIcon={<AccountCircleOutlined />}
         onClick={() => {}}

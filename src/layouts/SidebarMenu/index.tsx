@@ -1,43 +1,85 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-// import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-// import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InsertChartIcon from '@mui/icons-material/InsertChart';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import { Button } from '@mui/material';
+import { styled } from '@mui/system';
+import { Link } from 'react-router-dom';
+import { ButtonProps } from '@mui/material/Button';
+import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 const menuItems = [
-  { text: 'Painel', icon: <InsertChartIcon style={{ color: 'black' }} /> },
+  {
+    text: 'Painel',
+    icon: <BarChartOutlinedIcon style={{ width: '24px', height: '24px' }} />,
+  },
   {
     text: 'Caixa',
-    icon: <ReceiptLongOutlinedIcon style={{ color: 'black' }} />,
+    icon: <ReceiptLongOutlinedIcon style={{ width: '24px', height: '24px' }} />,
   },
   {
     text: 'Inventário',
-    icon: <Inventory2OutlinedIcon style={{ color: 'black' }} />,
+    icon: <Inventory2OutlinedIcon style={{ width: '24px', height: '24px' }} />,
   },
   {
     text: 'Carteira',
-    icon: <AccountBalanceWalletOutlinedIcon style={{ color: 'black' }} />,
+    icon: (
+      <AccountBalanceWalletOutlinedIcon
+        style={{ width: '24px', height: '24px' }}
+      />
+    ),
   },
   {
     text: 'Funcionarios',
-    icon: <BadgeOutlinedIcon style={{ color: 'black' }} />,
+    icon: <BadgeOutlinedIcon style={{ width: '24px', height: '24px' }} />,
   },
 ];
 
+interface StyledButtonProps extends ButtonProps {
+  pageSelected?: boolean;
+}
+
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+  '&.Mui-selected': {
+    backgroundColor: theme.palette.primary.main,
+  },
+}));
+
+const StyledLink = styled(NavLink)({
+  textDecoration: 'none',
+  color: 'inherit',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+const StyledButton = styled(Button)<StyledButtonProps>(
+  ({ theme, pageSelected }) => ({
+    'backgroundColor': pageSelected ? '#292929' : 'white',
+    '& svg': {
+      color: pageSelected ? 'white' : '#292929', // Color of the icon
+    },
+    '& h4': {
+      color: pageSelected ? 'white' : '#292929', // Color of the text
+      fontWeight: 100,
+      fontSize: 16
+    },
+   
+  })
+);
+
 export const SidebarMenu = () => {
+  const history = useHistory();
+  const location = useLocation();
   // const { isUserAdmin } = useCurrentUser();
   const [selectedPage, setSelectedPage] = useState('Painel'); // Default selected page
 
@@ -65,23 +107,26 @@ export const SidebarMenu = () => {
         <Toolbar />
         <List>
           {menuItems.map(({ text, icon }) => (
-            <ListItem
+            <StyledListItem
               key={text}
               disablePadding
               onClick={() => handlePageClick(text)}
-              sx={{
-                backgroundColor: selectedPage === text ? 'black' : 'inherit',
-              }}
             >
-              <ListItemButton
-                component="a"
-                selected={selectedPage === text}
-                href={`/${text.toLowerCase()}`}
+              <StyledLink
+                to={`/${text.toLowerCase()}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
+                <StyledButton
+                  // component="label"
+                  variant="sidebar"
+                  startIcon={icon}
+                  aria-label={text}
+                  pageSelected={selectedPage === text}
+                >
+                  <h4 style={{ margin: '8px' }}>{text}</h4>
+                </StyledButton>
+              </StyledLink>
+            </StyledListItem>
           ))}
         </List>
       </Drawer>

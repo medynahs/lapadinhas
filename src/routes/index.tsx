@@ -1,5 +1,5 @@
-import { Dashboard } from 'layouts/Dashboard';
 import { Add, Clientes, Update } from 'pages';
+import Painel from 'pages/Painel';
 import { ComponentType } from 'react';
 // import { NotAuthorized } from 'pages/NotAuthorized/NotAuthorized';
 // import { NotFound } from 'pages/NotFound/NotFound';
@@ -26,9 +26,16 @@ export const SECURE_ROUTES: {
 } = {
   AUTHORIZED: [
     {
-      path: ['/'],
+      path: ['/painel'],
       exact: true,
-      title: 'Clientes',
+      title: 'Painel',
+      component: Painel,
+      permissions: [Permissions.Admin, Permissions.Collaborator],
+    },
+    {
+      path: ['/caixa'],
+      exact: true,
+      title: 'Caixa',
       component: Clientes,
       permissions: [Permissions.Admin, Permissions.Collaborator],
     },

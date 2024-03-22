@@ -1,7 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import type {} from '@mui/x-data-grid/themeAugmentation';
-import { Content, SidebarMenu } from 'components';
 import { RouteSwitch } from 'components/RouteSwitch';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -13,6 +12,13 @@ declare module '@mui/material/Button' {
     white: true;
     tertiary: true;
     blue: true;
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    sidebar: true;
+    pageSelected: false;
   }
 }
 
@@ -85,7 +91,7 @@ const colorTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#A32DC1',
+      main: '#000000',
     },
     secondary: {
       main: '#5b19c4',
@@ -141,7 +147,7 @@ const colorTheme = createTheme({
 const defaultTheme = createTheme(colorTheme, {
   typography: {
     h1: {
-      fontSize: '2rem', // 32
+      fontSize: '1.55rem', // 25
       lineHeight: '2.625rem',
     },
     h2: {
@@ -153,8 +159,10 @@ const defaultTheme = createTheme(colorTheme, {
       lineHeight: '2rem',
     },
     h4: {
-      fontSize: '1.375rem', // 22
-      lineHeight: '1.75rem',
+      fontSize: '1rem', // 16
+      lineHeight: '0rem',
+      margin: '8px',
+      fontWeight: 100,
     },
     h5: {
       fontSize: '1.25rem', // 20
@@ -192,7 +200,7 @@ const defaultTheme = createTheme(colorTheme, {
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
-          background-color: ${colorTheme.palette.blueBlack.main};
+          background-color: white;
         }
       `,
     },
@@ -200,7 +208,7 @@ const defaultTheme = createTheme(colorTheme, {
       styleOverrides: {
         root: {
           textTransform: 'capitalize',
-          borderRadius: 4,
+          borderRadius: 8,
         },
       },
       variants: [
@@ -211,6 +219,18 @@ const defaultTheme = createTheme(colorTheme, {
             borderColor: colorTheme.palette.background.default,
             borderRadius: 20,
             fontSize: '1rem',
+          },
+        },
+        {
+          props: { variant: 'sidebar' },
+          style: {
+            border: '0',
+            borderColor: colorTheme.palette.background.default,
+            borderRadius: 8,
+            fontSize: '16px',
+            width: '80%',
+            justifyContent: 'left',
+            backgroundColor: colorTheme.palette.blueBlack.main,
           },
         },
       ],

@@ -1,8 +1,8 @@
-import {  Route } from 'react-router-dom';
+// import {  Route } from 'react-router-dom';
 
 import { Container } from './styles';
 
-import { Add, Clientes, Login, Update } from 'pages';
+// import { Add, Clientes, Login, Update } from 'pages';
 
 const Content = () => {
   return (

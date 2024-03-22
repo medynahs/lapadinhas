@@ -29,8 +29,8 @@ interface IRoute {
 
 export const RouteSwitch = () => {
   //   const { user } = useCurrentUser();
-    const userIsAuthorized = true;
-    return userIsAuthorized ? <AuthorizedRoutes /> : <NotAuthorizedRoutes />;
+  const userIsAuthorized = true;
+  return userIsAuthorized ? <AuthorizedRoutes /> : <NotAuthorizedRoutes />;
   // return true;
 };
 
@@ -63,10 +63,19 @@ const AuthorizedRoutes = () => {
           //   <AnimatePresence mode="sync" initial={false}>
           <Switch location={location} key={location.pathname}>
             {routes.map((route: IRoute, index: number) => (
-              <route.component title={route.title} routes={route.routes} />
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                render={(props) => (
+                  <route.component
+                    {...props}
+                    title={route.title}
+                    routes={route.routes}
+                  />
+                )}
+              />
             ))}
-            <Redirect exact from="/" to="/" />
-            {/* <SecureRoute path="*" component={NotFound} /> */}
           </Switch>
           //   </AnimatePresence>
         )}

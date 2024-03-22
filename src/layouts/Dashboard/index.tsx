@@ -23,7 +23,7 @@ export const Dashboard = ({ children }: Props) => {
         flexGrow={1}
         minHeight="100vh"
       >
-        <Stack direction="row" paddingRight={3} justifyContent="space-between">
+        <Stack direction="row" paddingRight={3} justifyContent="end">
           <UtilityMenu />
         </Stack>
         <Paper
