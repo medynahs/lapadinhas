@@ -1,2 +1,2 @@
-export * from './SidebarMenu';
+export * from '../layouts/SidebarMenu';
 export * from './Content';

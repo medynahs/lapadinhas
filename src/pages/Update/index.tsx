@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 
 const Update = () => {
   const [cliente, setCliente] = useState({
@@ -18,7 +18,7 @@ const Update = () => {
   const [error, setError] = useState(false);
 
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const clienteId = location.pathname.split('/')[2];
   console.log('id', clienteId);
@@ -42,7 +42,7 @@ const Update = () => {
         `http://localhost:8800/clientes/${clienteId}`,
         updatedCliente
       );
-      navigate('/');
+      // navigate('/');
     } catch (err) {
       console.log(err);
       setError(true);

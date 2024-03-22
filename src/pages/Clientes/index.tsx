@@ -13,9 +13,11 @@ import { transformDate } from 'hooks/transformDate';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { TablePagination } from '@mui/material';
-import * as S from './styles';
+// import * as S from './styles';
+import { Button } from '@mui/material';
 
 const Clientes = () => {
+  console.log('clientes page');
   const [clientes, setClientes] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -55,7 +57,7 @@ const Clientes = () => {
   };
 
   return (
-    <S.Container>
+    <div>
       <h1>Clientes</h1>
 
       <Paper>
@@ -137,13 +139,19 @@ const Clientes = () => {
       </Paper>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <S.AddButton>
+        {/* <S.AddButton>
           <Link to="/add" style={{ color: 'inherit', textDecoration: 'none' }}>
             Add new cliente
           </Link>
-        </S.AddButton>
+        </S.AddButton> */}
+
+        <Button>
+          <Link to="/add" style={{ color: 'inherit', textDecoration: 'none' }}>
+            Add new cliente
+          </Link>
+        </Button>
       </div>
-    </S.Container>
+    </div>
   );
 };
 
