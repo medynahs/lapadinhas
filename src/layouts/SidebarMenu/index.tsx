@@ -27,7 +27,7 @@ const menuItems = [
     icon: <ReceiptLongOutlinedIcon style={{ width: '24px', height: '24px' }} />,
   },
   {
-    text: 'Inventário',
+    text: 'Estoque',
     icon: <Inventory2OutlinedIcon style={{ width: '24px', height: '24px' }} />,
   },
   {
@@ -71,9 +71,8 @@ const StyledButton = styled(Button)<StyledButtonProps>(
     '& h4': {
       color: pageSelected ? 'white' : '#292929', // Color of the text
       fontWeight: 100,
-      fontSize: 16
+      fontSize: 16,
     },
-   
   })
 );
 

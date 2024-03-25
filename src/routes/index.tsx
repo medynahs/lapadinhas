@@ -1,6 +1,7 @@
 import { Add, Clientes, Update } from 'pages';
 import Caixa from 'pages/Caixa';
 import Painel from 'pages/Painel';
+import { StockPage } from 'pages/Stock';
 import { ComponentType } from 'react';
 // import { NotAuthorized } from 'pages/NotAuthorized/NotAuthorized';
 // import { NotFound } from 'pages/NotFound/NotFound';
@@ -45,6 +46,14 @@ export const SECURE_ROUTES: {
       exact: true,
       title: 'Clientes',
       component: Clientes,
+      routes: [],
+      permissions: [Permissions.Admin, Permissions.Collaborator],
+    },
+    {
+      path: '/estoque',
+      exact: true,
+      title: 'Estoque',
+      component: StockPage,
       routes: [],
       permissions: [Permissions.Admin, Permissions.Collaborator],
     },
